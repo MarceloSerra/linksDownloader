@@ -5,12 +5,6 @@ $links = json_decode($_POST['links']);
 $dir = './processed/';
 
 
-/* function explodeLinks($array){
-    $exploded = explode("\n", $array);
-    return $exploded;
-}
- */
-
 function crawlUrl($url){
     $ch = curl_init($url);
     curl_setopt( $ch, CURLOPT_RETURNTRANSFER,true );
@@ -23,7 +17,14 @@ function crawlUrl($url){
 }
 
 foreach($links as $link){
-$fileName = basename($link);
-file_put_contents($dir.$fileName, crawlUrl($link));
+
+    $fileName = basename($link);
+    if(file_put_contents($dir.$fileName, crawlUrl($link))){
+        echo 'Downloaded: '.$link.'<br>';
+    }else{
+        echo 'Failed: '.$link.'<br>';
+    }
+
 }
+
 ?>
