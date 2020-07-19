@@ -10,7 +10,7 @@ class Download{
     }
 
     public function setLinks($arrayLinks){
-            $this->links = $value;
+        $this->links = $value;
     }
 
     public function getLinks(){
