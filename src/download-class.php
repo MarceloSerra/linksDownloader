@@ -10,9 +10,7 @@ class Download{
     }
 
     public function setLinks($arrayLinks){
-        foreach($arrayUrls as $this->links => $value){
             $this->links = $value;
-        }
     }
 
     public function getLinks(){
